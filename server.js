@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
+app.use(express.json());
+
 const workoutRouter = require("./routes/workouts.js");
 
 app.use((req, res, next) => {
@@ -12,7 +14,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use("/api/workouts",workoutRouter);
+app.use("/api/workouts", workoutRouter);
 
 app.listen(PORT, () => {
 	console.log(`server running on port ${PORT}`);
